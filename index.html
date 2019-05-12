@@ -28,12 +28,15 @@
             :key="variant.variantId"
             class="color-box"
             :style="{backgroundColor: variant.variantColor}"
+            @mouseover="updateProduct(variant.variantImage)"
+          ></div>
+          <button
+            v-on:click="addToCard"
+            :disabled="!inStock"
+            :class="{disableButton: !inStock }"
           >
-            <p @mouseover="updateProduct(variant.variantImage)">
-              {{ variant.variantColor }}
-            </p>
-          </div>
-          <button v-on:click="addToCard">Add to Card</button>
+            Add to Card
+          </button>
           <div class="cart">
             <p>Cart({{ cart }})</p>
           </div>
