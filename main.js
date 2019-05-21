@@ -38,6 +38,18 @@ Vue.component("product", {
           >
             Add to cart
           </button>
+          <div>
+          <h2>Reviews</h2>
+          <p v-if="!reviews.length">There are no reviews yet.</p>
+          <ul>
+          <li v-for="review in reviews">
+          <p>{{review.name}}</p>
+          <p>{{review.review}}</p>
+
+          </li>
+          </ul>
+
+          </div>
 
           
 
@@ -66,7 +78,8 @@ Vue.component("product", {
             "https://www.vuemastery.com/images/challenges/vmSocks-blue-onWhite.jpg",
           variantQuantity: 0
         }
-      ]
+      ],
+      reviews: []
     };
   },
   methods: {
@@ -78,7 +91,7 @@ Vue.component("product", {
       console.log(index);
     },
     addReview(productReview) {
-      this.review.push(productReview);
+      this.reviews.push(productReview);
     }
   },
   computed: {
